@@ -217,8 +217,9 @@
 <section id="projects" class="projects">
     <h2 class="section-title reveal">Projects</h2>
     <p class="projects-note reveal">A few projects that highlight clean UI, responsive layouts, and interactive components. Each one is built with a focus on real user experience.</p>
-    <div class="projects-carousel reveal">
-    
+    <div class="projects-carousel-wrapper reveal" aria-label="Project carousel">
+        <button class="projects-arrow prev" type="button" aria-label="Previous project">‹</button>
+        <div class="projects-carousel">
     <!-- Project 1 -->
     <div class="project-card-advanced">
         <img src="https://ik.imagekit.io/sruthismanian/waffle-3.jpg?updatedAt=1765195961425" class="project-img" alt="Fluffy Bites waffle store website preview">
@@ -297,26 +298,27 @@
     </div>
 
     <!-- Project 5 -->
-   <div class="project-card-advanced">
-       <img src="images/project display/counter checker.png" class="project-img" alt="Counter Checker React app preview">
-       <div class="project-info">
+    <div class="project-card-advanced">
+        <img src="images/project display/counter checker.png" class="project-img" alt="Counter Checker React app preview">
+        <div class="project-info">
             <h3>Counter Checker</h3>
             <p>Interactive counter application that allows users to
-              increase, decrease, and reset numbers with real-time
-              updates using React state management.</p>
-           <div class="project-tags">
-               <span>React</span>
-               <span>JavaScript</span>
-               <span>UI Interaction</span>
+                increase, decrease, and reset numbers with real-time
+                updates using React state management.</p>
+            <div class="project-tags">
+                <span>React</span>
+                <span>JavaScript</span>
+                <span>UI Interaction</span>
             </div>
             <div class="project-links">
-               <a href="https://counterchecker.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
-               <a href="https://github.com/Sruthismanian06" target="_blank" rel="noopener noreferrer">Code</a>
+                <a href="https://counterchecker.netlify.app/" target="_blank" rel="noopener noreferrer">Live</a>
+                <a href="https://github.com/Sruthismanian06" target="_blank" rel="noopener noreferrer">Code</a>
             </div>
         </div>
     </div>
-
-</div>
+        </div>
+        <button class="projects-arrow next" type="button" aria-label="Next project">›</button>
+    </div>
 </section>
 <!-- artworks section -->
     <section id="artworks" class="artworks">
