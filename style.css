@@ -653,16 +653,43 @@ transition:all .3s ease;
     max-width:1200px;
     margin:auto;
     }
-    .projects-carousel{
-        display:flex;
-        gap:2rem;
-        overflow-x:auto;
-        padding:2rem 10px;
-        scroll-snap-type:x mandatory;
-        scroll-behavior:smooth;
-        
+    .projects-carousel {
+        display: flex;
+        gap: 1rem; /* smaller gap to fit mobile better */
+        overflow-x: auto;
+        padding: 2rem 10px;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
         -webkit-overflow-scrolling: touch;
+    }
+    
+    /* Project card widths responsive & uniform */
+    .project-card-advanced {
+        flex: 0 0 min(100%, 300px); /* max width 300px, shrinks if needed */
+        display: flex;
+        flex-direction: column;
+        background: linear-gradient(135deg, rgba(11,17,32,.9), rgba(15,23,42,.8));
+        border: 1px solid var(--border-subtle);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all .35s ease;
+        scroll-snap-align: center;
+        scroll-snap-stop: always;
+    }
+    
+    /* Tablet */
+    @media (min-width: 768px) and (max-width: 1023px) {
+        .project-card-advanced {
+            flex: 0 0 min(50%, 320px);
         }
+    }
+    
+    /* Laptop/Desktop */
+    @media (min-width: 1024px) {
+        .project-card-advanced {
+            flex: 0 0 min(33.33%, 350px);
+        }
+    }
     
 
 
@@ -681,57 +708,6 @@ display:none;
 
 }
 
-.project-card-advanced{
-
-    flex:0 0 calc(100% - 1rem); /* Mobile: 1 project */
-    
-    display:flex;
-    flex-direction:column;
-    
-    background:linear-gradient(
-    135deg,
-    rgba(11,17,32,.9),
-    rgba(15,23,42,.8)
-    );
-    
-    border:1px solid var(--border-subtle);
-    border-radius:20px;
-    
-    overflow:hidden;
-    
-    transition:all .35s ease;
-    
-    scroll-snap-align:center;
-    scroll-snap-stop:always;
-    
-    }
-    /* Tablet - 2 projects */
-
-@media (min-width:768px){
-
-    .project-card-advanced{
-    flex:0 0 calc(50% - 1rem);
-    }
-    
-    }
-    
-    
-    /* Laptop / Desktop - 3 projects */
-    
-    @media (min-width:1024px){
-    
-    .project-card-advanced{
-    flex:0 0 calc(33.33% - 1.4rem);
-    }
-    
-    }
-    @media (max-width:767px){
-
-        .projects-carousel{
-        gap:1rem;
-        }
-        
-        }
 
 .project-card-advanced:hover{
 
@@ -940,13 +916,35 @@ overflow:hidden;
 margin-top:3rem;
 }
 
-.parallax-row{
-display:flex;
-gap:1.5rem;
-margin-bottom:1.5rem;
-width:max-content;
-will-change: transform;
-}
+.parallax-row {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: nowrap; /* keeps images in a row */
+    will-change: transform;
+  }
+  
+  @media (max-width: 767px) {
+    .parallax-gallery .parallax-row img {
+      width: 180px; /* medium size for mobile */
+      height: auto;
+      margin: 0 5px; 
+    }
+  }
+  
+  /* Animation speed up */
+  .row1 { animation: scrollLeft 25s linear infinite; }
+  .row2 { animation: scrollRight 28s linear infinite; }
+  
+  @keyframes scrollLeft {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+  }
+  
+  @keyframes scrollRight {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(0); }
+  }
 
 .parallax-img{
 
@@ -981,15 +979,7 @@ transform:scale(1.06);
 box-shadow:var(--glow-cyan);
 }
 
-/* scrolling rows */
 
-.row1{
-animation:scrollLeft 55s linear infinite;
-}
-
-.row2{
-animation:scrollRight 60s linear infinite;
-}
 
 @keyframes scrollLeft{
     0%{transform:translateX(0);}
